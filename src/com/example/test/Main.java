@@ -6,15 +6,15 @@ public class Main {
 
     public static void main(String[] args) {
 
-        /*main loop for determining paddle shift engagement*/
+        // main loop for determining paddle shift engagement
         while (true) {
 
-            /*instructional strings printed to console*/
+            // instructional strings printed to console
             System.out.println("\nIs the paddle switch engaged? Press 'y' for YES or 'n' for NO: ");
             Scanner scanner = new Scanner(System.in);
             String inputString = scanner.nextLine();
 
-            /*conditional statement to determine UP_SHIFT or DOWN_SHIFT engagement*/
+            // conditional statement to determine UP_SHIFT or DOWN_SHIFT engagement
             if (inputString.equals("y")) {
                 while (true) {
                     System.out.println("\nPlease press 'u' for UP_SHIFT or 'd' for DOWN_SHIFT");
@@ -22,15 +22,15 @@ public class Main {
                     Scanner scanner1 = new Scanner(System.in);
                     String inputString1 = scanner1.nextLine();
 
-                    /*conditional for exceptions check*/
+                    // conditional for exceptions check
                     if (inputString1.equals("u") || inputString1.equals("d")) {
                         System.out.println("\nEngaging Clutch...");
 
-                        /*exceptions check*/
+                        // exceptions check
                         try {
                             int timer = 0;
 
-                            /*loop for delay*/
+                            // loop for delay
                             while (timer < 3000) {
                                 Thread.sleep(1000);
                                 System.out.println("Servo is preparing to run");
@@ -40,7 +40,7 @@ public class Main {
 
                         }
 
-                        /*conditional for UP_SHIFT or DOWN_SHIFT signal*/
+                        // conditional for UP_SHIFT or DOWN_SHIFT signal
                         if (inputString1.equals("u")) {
                             System.out.println("\nUP_SHIFT signal for solenoid");
                         } else {
@@ -51,14 +51,14 @@ public class Main {
                     }
                 }
 
-                /*keeps looping if the paddle switch is not engaged*/
+                // keeps looping if the paddle switch is not engaged
             } else {
                 System.out.println("The paddle switch must be engaged before shifting.");
 
-                /*exceptions check*/
+                // exceptions check
                 try {
                     int timer = 0;
-                    /*loop for delay before rechecking paddle switch engagement*/
+                    // loop for delay before rechecking paddle switch engagement
                     while (timer < 600) {
                         Thread.sleep(200);
                         System.out.println("Checking paddle switch...");
